@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Modern Responsive Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" type="image/png" href="#">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="grid">
+  <!-- <header class="header">
+    <i class="fas fa-bars header__menu"></i>
+    <div class="header__search">
+      <input class="header__input" placeholder="Search..." />
+    </div>
+    <div class="header__avatar">
+      <div class="dropdown">
+        <ul class="dropdown__list">
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="far fa-user"></i></span>
+            <span class="dropdown__title">my profile</span>
+          </li>
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
+            <span class="dropdown__title">my account</span>
+          </li>
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+            <span class="dropdown__title">log out</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header> -->
+
+  <aside class="sidenav">
+    <div class="sidenav__brand">
+      <i class="fas fa-feather-alt sidenav__brand-icon"></i>
+      <a class="sidenav__brand-link" href="#">Model<span class="text-light">Explainable</span></a>
+      <i class="fas fa-times sidenav__brand-close"></i>
+    </div>
+    <!-- <div class="sidenav__profile">
+      <div class="sidenav__profile-avatar"></div>
+      <div class="sidenav__profile-title text-light">Matthew H</div>
+    </div> -->
+    <div class="row row--align-v-center row--align-h-center">
+      <ul class="navList">
+        <li class="navList__heading">documents<i class="far fa-file-alt"></i></li>
+          <li>
+          <div class="navList__subheading row row--align-v-center">
+            <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+            <span class="navList__subheading-title">建模</span>
+          </div>
+          <ul class="subList subList--hidden">
+            <li class="subList__item">資料描述</li>
+            <li class="subList__item">資料預處理</li>
+            <li class="subList__item">模型效能</li>
+            <li class="subList__item"><a href="Explainable.html">可解釋性分析</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="navList__subheading row row--align-v-center">
+            <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+            <span class="navList__subheading-title">團隊</span>
+          </div>
+          <ul class="subList subList--hidden">
+            <li class="subList__item">domestic</li>
+            <li class="subList__item">foreign</li>
+            <li class="subList__item">misc</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main">
+   <div id="addrow">add</div>
+    <div class="explainable__cards">
+      <div class="card card--finance">
+        <div class="card__header">
+          <div class="card__header-title text-light">Model <strong>SHAP VALUE</strong>
+            <a href="#" class="card__header-link text-bold">View All</a>
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div id="feature_input" style="margin: 20px;">
+        <button id="submit" type="submit">submit</button>
+        </div>
+        <div id="viz" style="margin: 20px;"></div>  
+      </div>
+    </div> <!-- /.main-cards -->
+   
+  </main>
+  <footer class="footer">
+    <p><span class="footer__copyright">&copy;</span> 2018 MTH</p>
+    <p>Crafted with <i class="fas fa-heart footer__icon"></i> by <a href="https://www.linkedin.com/in/matt-holland/" target="_blank" class="footer__signature">Matt H</a></p>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+<script type="text/javascript" src="js/bundle.js" charset="utf-8"></script>
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
+<script src='https://www.amcharts.com/lib/3/serial.js'></script>
+<script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script  src="js/index.js"></script>
+  <script>
+    $(document).ready(function(){
+    $.get("http://127.0.0.1:8001/get_model_feature",data={"model_name":"xgboost_model.pkl"} , function(result){
+        // $("#feature_input").html(result);
+        d3.select("#feature_input")
+        .selectAll("div")
+        .data(result)
+        .enter().append("div").attr("class", "feature_input")
+        .html(function(d) { return "<span>"+d+"</span>"+" :"+"<input  type=\"text\" name=\""+String(d)+"\"/>"; });
+    })
+  })
+
+   $("#submit").click(function(){
+    console.log("submit");
+    var upload_dat={}
+      var input = d3.selectAll(".feature_input");
+      input.each(function() {
+        upload_dat[this.name]=parseFloat(this.value);
+      })
+    console.log(upload_dat)
+    $.get("http://127.0.0.1:8001/model_predict", data={"model_name":"xgboost_model.pkl","x":JSON.stringify(upload_dat)},function(result){
+        // $("#feature_input").html(result);
+        var draw_data = JSON.parse(JSON.stringify(result));
+        SHAP.ReactDom.render(SHAP.React.createElement(SHAP.AdditiveForceVisualizer,draw_data),
+          document.getElementById("viz")
+      );
+    })
+  });
+
+   $("#addrow").click(function(){
+    console.log("add");
+    $( "main" ).append(`<div class="explainable__cards"></div>`);
+    var new_row=$(".explainable__cards").last()
+    new_row.html($('.explainable__cards').first().html())
+    var n = $( ".explainable__cards" ).length;
+    new_row.find("#viz").attr("id","viz"+String(n))
+   })
+  </script>
+
+
+
+</body>
+
+</html>

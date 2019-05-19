@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Modern Responsive Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" type="image/png" href="#">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="grid">
+  <!-- <header class="header">
+    <i class="fas fa-bars header__menu"></i>
+    <div class="header__search">
+      <input class="header__input" placeholder="Search..." />
+    </div>
+    <div class="header__avatar">
+      <div class="dropdown">
+        <ul class="dropdown__list">
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="far fa-user"></i></span>
+            <span class="dropdown__title">my profile</span>
+          </li>
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
+            <span class="dropdown__title">my account</span>
+          </li>
+          <li class="dropdown__list-item">
+            <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+            <span class="dropdown__title">log out</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header> -->
+
+  <aside class="sidenav">
+    <div class="sidenav__brand">
+      <i class="fas fa-feather-alt sidenav__brand-icon"></i>
+      <a class="sidenav__brand-link" href="#">Model<span class="text-light">Explainable</span></a>
+      <i class="fas fa-times sidenav__brand-close"></i>
+    </div>
+    <!-- <div class="sidenav__profile">
+      <div class="sidenav__profile-avatar"></div>
+      <div class="sidenav__profile-title text-light">Matthew H</div>
+    </div> -->
+    <div class="row row--align-v-center row--align-h-center">
+      <ul class="navList">
+        <li class="navList__heading">documents<i class="far fa-file-alt"></i></li>
+          <li>
+          <div class="navList__subheading row row--align-v-center">
+            <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+            <span class="navList__subheading-title">建模</span>
+          </div>
+          <ul class="subList subList--hidden">
+            <li class="subList__item">資料描述</li>
+            <li class="subList__item">資料預處理</li>
+            <li class="subList__item">模型效能</li>
+            <li class="subList__item"><a href="Explainable.html">可解釋性分析</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="navList__subheading row row--align-v-center">
+            <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+            <span class="navList__subheading-title">團隊</span>
+          </div>
+          <ul class="subList subList--hidden">
+            <li class="subList__item">domestic</li>
+            <li class="subList__item">foreign</li>
+            <li class="subList__item">misc</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <div class="main-header__intro-wrapper">
+        <div class="main-header__welcome">
+          <div class="main-header__welcome-title text-light">使用模型: <strong>Xgboost</strong></div>
+          <!-- <div class="main-header__welcome-subtitle text-light">How are you today?</div> -->
+        </div>
+        <div class="quickview">
+          <div class="quickview__item">
+            <div class="quickview__item-total">150000筆</div>
+            <div class="quickview__item-description">
+              <i class="far fa-calendar-alt"></i>
+              <span class="text-light">Data Number</span>
+            </div>
+          </div>
+          <div class="quickview__item">
+            <div class="quickview__item-total">2019-01 ~ 2019-03</div>
+            <div class="quickview__item-description">
+              <i class="far fa-comment"></i>
+              <span class="text-light">樣本期間</span>
+            </div>
+          </div>
+          <div class="quickview__item">
+            <div class="quickview__item-total">全國&deg;</div>
+            <div class="quickview__item-description">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="text-light">樣本地點</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-overview">
+      <!-- <div class="overviewCard">
+        <div class="overviewCard-icon overviewCard-icon--document">
+           <i class="far fa-file-alt"></i>
+        </div>
+        <div class="overviewCard-description">
+          <h3 class="overviewCard-title text-light">New <strong>Document</strong></h3>
+          <p class="overviewCard-subtitle">Europe Trip</p>
+        </div>
+      </div>
+      <div class="overviewCard">
+        <div class="overviewCard-icon overviewCard-icon--calendar">
+           <i class="far fa-calendar-check"></i>
+        </div>
+        <div class="overviewCard-description">
+          <h3 class="overviewCard-title text-light">Upcoming <strong>Event</strong></h3>
+          <p class="overviewCard-subtitle">Chili Cookoff</p>
+        </div>
+      </div>
+      <div class="overviewCard">
+        <div class="overviewCard-icon overviewCard-icon--mail">
+           <i class="far fa-envelope"></i>
+        </div>
+        <div class="overviewCard-description">
+          <h3 class="overviewCard-title text-light">Recent <strong>Emails</strong></h3>
+          <p class="overviewCard-subtitle">+10</p>
+        </div>
+      </div>
+      <div class="overviewCard">
+        <div class="overviewCard-icon overviewCard-icon--photo">
+           <i class="far fa-file-image"></i>
+        </div>
+        <div class="overviewCard-description">
+          <h3 class="overviewCard-title text-light">New <strong>Album</strong></h3>
+          <p class="overviewCard-subtitle">House Concert</p>
+        </div>
+      </div> -->
+    </div> <!-- /.main__overview -->
+    <div class="main__cards">
+      <div class="card">
+        <div class="card__header">
+          <div class="card__header-title text-light">建模 <strong>進度</strong>
+            <!-- <a href="#" class="card__header-link text-bold">View All</a> -->
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div class="card__main">
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-gift"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">需求訪談</div>
+              <div class="card__description">訪問貴單位業務需求，了解完整業務流程，並討論優化項目</div>
+              <div class="card__note">階段成果：訪談需求確認書.pdf</div>
+            </div>
+          </div>
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-plane"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">資料庫探索</div>
+              <div class="card__description">將需求轉換為資料科學的問題，並探索資料庫中可使用的資料</div>
+              <div class="card__note">預期成果：資料表.csv , 探索成果.csv </div>
+            </div>
+          </div>
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-book"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">文獻探討</div>
+              <div class="card__description">探討現有文獻的做法，並決定最終模型</div>
+              <div class="card__note">預期成果：Survey.pdf</div>
+            </div>
+          </div>
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-heart"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">資料清理、特徵工程</div>
+              <div class="card__description">將資料的欄位釐清，並將資料經過特徵工程轉換</div>
+              <div class="card__note">預期成果：Data.pk</div>
+            </div>
+          </div>
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-heart"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">建模</div>
+              <div class="card__description">在選定的若干個模型中完成調參、優化等過程並決定最佳的模型</div>
+              <div class="card__note">預期成果：Final_Model.pk</div>
+            </div>
+          </div>
+          <div class="card__row">
+            <div class="card__icon"><i class="fas fa-heart"></i></div>
+            <div class="card__time">
+              <div>2019-03-04</div>
+            </div>
+            <div class="card__detail">
+              <div class="card__source text-bold">專案交付</div>
+              <div class="card__description">將模型檔、訓練成果連同Dash Board交付貴單位</div>
+              <div class="card__note">預期成果：Project Directory</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__header">
+          <div class="card__header-title text-light">參考<strong>文獻</strong>
+            <!-- <a href="#" class="card__header-link text-bold">View All</a> -->
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="documents">
+            <div class="document">
+              <div class="document__img"></div>
+              <div class="document__title">Xgboost</div>
+              <div class="document__date">07/16/2018</div>
+            </div>
+            <div class="document">
+              <div class="document__img"></div>
+              <div class="document__title">SVM</div>
+              <div class="document__date">09/04/2018</div>
+            </div>
+            <div class="document">
+              <div class="document__img"></div>
+              <div class="document__title">Bigram</div>
+              <div class="document__date">10/10/2018</div>
+            </div>
+            <div class="document">
+              <div class="document__img"></div>
+              <div class="document__title">HMM</div>
+              <div class="document__date">11/01/2018</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card--finance">
+        <div class="card__header">
+          <div class="card__header-title text-light">Monthly <strong>Spending</strong>
+            <a href="#" class="card__header-link text-bold">View All</a>
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div id="chartdiv"></div>
+      </div>
+      <div class="card card--finance">
+        <div class="card__header">
+          <div class="card__header-title text-light">Monthly <strong>Spending</strong>
+            <a href="#" class="card__header-link text-bold">View All</a>
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div id="chartdiv2"></div>
+      </div>
+      <div class="card card--finance">
+        <div class="card__header">
+          <div class="card__header-title text-light">Monthly <strong>Spending</strong>
+            <a href="#" class="card__header-link text-bold">View All</a>
+          </div>
+          <div class="settings">
+            <div class="settings__block"><i class="fas fa-edit"></i></div>
+            <div class="settings__block"><i class="fas fa-cog"></i></div>
+          </div>
+        </div>
+        <div id="chartdiv3"></div>
+      </div>
+    </div> <!-- /.main-cards -->
+  </main>
+
+  <footer class="footer">
+    <p><span class="footer__copyright">&copy;</span> 2018 MTH</p>
+    <p>Crafted with <i class="fas fa-heart footer__icon"></i> by <a href="https://www.linkedin.com/in/matt-holland/" target="_blank" class="footer__signature">Matt H</a></p>
+  </footer>
+</div>
+<script type="text/javascript" src="js/bundle.js" charset="utf-8"></script>
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
+<script src='https://www.amcharts.com/lib/3/serial.js'></script>
+<script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script  src="js/index.js"></script>
+  <script>
+    // $(document).ready(function(){
+    //     $.get("http://127.0.0.1:8001/model_predict",function(result){
+    //     // $("#feature_input").html(result);
+    //     var draw_data = JSON.parse(JSON.stringify(result));
+    //     SHAP.ReactDom.render(SHAP.React.createElement(SHAP.AdditiveForceVisualizer,draw_data),
+    //       document.getElementById("viz")
+    //     );
+    //   });
+    // });
+  </script>
+
+
+
+</body>
+
+</html>
