@@ -728,7 +728,7 @@ a {
 }
 @media only screen and (min-width: 65.625em) {
   .main__cards {
-    column-count: 1;
+    column-count: 2;
   }
   
   .explainable__cards{
